@@ -1,0 +1,6 @@
+.my-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.my-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #bbbbbb;
+}
