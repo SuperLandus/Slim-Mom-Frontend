@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { setToken } from './authSlice';
 
-const API_URL = 'https://slimmom-backend-s8n8.onrender.com';
+const API_URL = 'https://slim-mom-backend-nbxd.onrender.com';
 
 // REGISTER
 export const registerUser = createAsyncThunk(
