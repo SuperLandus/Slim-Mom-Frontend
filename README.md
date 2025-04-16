@@ -1,6 +1,6 @@
-# Finovators -> SlimMom
+# SuperLandus -> SlimMom
 
-**Slim-Mom** projesine hoş geldiniz. Bu proje, GoIT teknoloji okulu projesi için [**Finovators**](https://sailortr.github.io/slimmomsunum/) adlı ekibin çalışmasıdır.
+**Slim-Mom** projesine hoş geldiniz. Bu proje, [**SuperLandus**]() adlı ekibin çalışmasıdır.
 
 [![Static Badge](https://img.shields.io/badge/visit-SlimMom-%FF9D23?style=for-the-badge)](https://slim-mom-frontend-five.vercel.app/)
 
@@ -16,11 +16,7 @@ Slim Mom, kullanıcıların günlük kalori alımını takip edebileceği ve hed
 | :---------------- | :------------------------------------------------- | :----------------------- |
 | Heza GÖLCÜK       | [@Hezaarfenn](https://github.com/Hezaarfenn)       | Scrum Master - Developer |
 | Gizem ÇOBAN       | [@gizemcobannnn](https://github.com/gizemcobannnn) | Team Leader - Developer  |
-| Şubat YÜCEL       | [@subatyucel](https://github.com/subatyucel)       | Developer                |
-| Rojhat BALTA      | [@rojhatbalta](https://github.com/rojhatbalta)     | Developer                |
 | Mete CİVELEK      | [@metlandus](https://github.com/metlandus)         | Developer                |
-| Muhammet UZUNOĞLU | [@Sailortr](https://github.com/Sailortr)           | Developer                |
-| Murat ÇOLAK       | [@zipkaniar](https://github.com/zipkaniar)         | Developer                |
 
 ## Özellikler
 
