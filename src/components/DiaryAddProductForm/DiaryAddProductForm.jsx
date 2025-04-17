@@ -25,7 +25,7 @@ const DiaryAddProductForm = ({ date, setDate, onAddSuccess }) => {
     if (itemId && weight) {
       try {
         await axios.post(
-          'https://slimmom-backend-s8n8.onrender.com/user/products',
+          'https://slim-mom-backend-nbxd.onrender.com/user/products',
           {
             productId: itemId,
             productWeight: weight,
@@ -51,7 +51,7 @@ const DiaryAddProductForm = ({ date, setDate, onAddSuccess }) => {
     async function fetchData() {
       if (query.length >= 2) {
         const data = await axios.get(
-          `https://slimmom-backend-s8n8.onrender.com/products/searchProducts?title=${query}`,
+          `https://slim-mom-backend-nbxd.onrender.com/products/searchProducts?title=${query}`,
         );
         setFilteredItems(data.data.data);
       } else {

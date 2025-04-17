@@ -11,7 +11,7 @@ export const DiaryProductsListItem = ({
 }) => {
   async function deleteProduct(id, date) {
     await axios.delete(
-      `https://slimmom-backend-s8n8.onrender.com/user/products/${id}?date=${date}`,
+      `https://slim-mom-backend-nbxd.onrender.com/user/products/${id}?date=${date}`,
       onDelete(id),
     );
   }

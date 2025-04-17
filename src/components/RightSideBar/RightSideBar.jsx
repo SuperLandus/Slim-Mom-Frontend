@@ -7,14 +7,15 @@ const RightSideBar = ({ selectedDate, date, products }) => {
   const [consumedCalories, setConsumedCalories] = useState(0);
   const [fetchedDate, setFetchedDate] = useState('');
   const { token } = useSelector((state) => state.auth);
+  const [userNeeds, setUserNeeds] = useState('');
 
   // LocalStorage'dan dailyRate ve notAllowedFoods verilerini çek
-  const storedData = localStorage.getItem('dailyRateData');
-  const parsedData = storedData ? JSON.parse(storedData) : null;
-  const dailyRate = parsedData?.dailyRate || 0;
-  const notAllowedFoods = parsedData?.notAllowedFoods || [];
+  //   const storedData = localStorage.getItem('dailyRateData');
+  //   const parsedData = storedData ? JSON.parse(storedData) : null;
+  //   const dailyRate = parsedData?.dailyRate || 0;
+  //   const notAllowedFoods = parsedData?.notAllowedFoods || [];
 
-  const leftCalories = dailyRate - consumedCalories;
+  //   const leftCalories = dailyRate - consumedCalories;
 
   // date formatlama işlemi - date undefined olursa hata almamak için
   let formattedDate = '';
@@ -39,23 +40,34 @@ const RightSideBar = ({ selectedDate, date, products }) => {
 
       try {
         const res = await axios.get(
-          `https://slimmom-backend-s8n8.onrender.com/user/my-daily-calories?date=${formattedDate}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          },
+          `https://slim-mom-backend-nbxd.onrender.com/user/my-daily-calories?date=${formattedDate}`,
         );
         setConsumedCalories(res.data.totalCalories || 0);
         setFetchedDate(res.data.date);
       } catch (err) {
         console.log('Daily Calories Error:', err);
       }
+      try {
+        const res = await axios.get(
+          `https://slim-mom-backend-nbxd.onrender.com/user/my-daily-calory-needs`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+        setUserNeeds(res.data.data.dailyRate);
+        console.log(res);
+
+      } catch (err) {
+        console.log(err);
+      }
     };
 
     fetchDailyCalories();
   }, [selectedDate, formattedDate, token, products]);
 
+  const leftCalories = consumedCalories - userNeeds;
   return (
     <aside
       className="
@@ -96,13 +108,13 @@ const RightSideBar = ({ selectedDate, date, products }) => {
           </li>
           <li className="flex justify-between gap-4">
             <span>Daily rate</span>
-            <span>{dailyRate ?? 0} kcal</span>
+            <span>{userNeeds ?? 0} kcal</span>
           </li>
           <li className="flex justify-between gap-4">
             <span>% of normal</span>
             <span>
-              {dailyRate
-                ? `${Math.round((consumedCalories / dailyRate) * 100)}%`
+              {userNeeds
+                ? `${Math.round((consumedCalories / userNeeds) * 100)}%`
                 : '0%'}
             </span>
           </li>
@@ -110,7 +122,7 @@ const RightSideBar = ({ selectedDate, date, products }) => {
       </div>
 
       {/* Yasaklı yiyecekler */}
-      <div className="flex flex-col items-start gap-4 w-full">
+      {/* <div className="flex flex-col items-start gap-4 w-full">
         <h3 className="text-md font-bold">Food not recommended</h3>
         {notAllowedFoods.length > 0 ? (
           <ul className="text-[#9B9FAA] font-[Verdana] text-[14px] list-decimal list-inside space-y-2">
@@ -121,7 +133,7 @@ const RightSideBar = ({ selectedDate, date, products }) => {
         ) : (
           <p className="text-gray-400">No food restrictions</p>
         )}
-      </div>
+      </div> */}
     </aside>
   );
 };

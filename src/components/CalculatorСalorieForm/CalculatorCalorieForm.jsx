@@ -9,22 +9,39 @@ import toast from 'react-hot-toast';
 import { useState } from 'react';
 import DailyCaloryModal from '../DailyCaloryModal/DailyCaloryModal';
 import PacmanLoader from 'react-spinners/PacmanLoader';
+import { useSelector } from 'react-redux';
 
 function CalculatorCalorieForm({ setDailyRateData }) {
   const [dailyRate, setDailyRate] = useState(null);
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
   const handleSubmit = async (values) => {
-    try {
-      const res = await axios.post(
-        'https://slimmom-backend-s8n8.onrender.com/user/daily-calory-needs',
-        values,
-      );
-      setDailyRate(res.data.data);
-      setDailyRateData(res.data.data); // This line is added Murat
-      localStorage.setItem('dailyRateData', JSON.stringify(res.data.data));
-    } catch (e) {
-      console.error(e);
-      toast.error(e.response.data.message);
+    console.log(isLoggedIn);
+
+    if (isLoggedIn) {
+      try {
+        const res = await axios.get(
+          'https://slim-mom-backend-nbxd.onrender.com/user/my-daily-calory-needs',
+          values,
+        );
+        setDailyRate(res.data.data);
+        setDailyRateData(res.data.data); // This line is added Murat
+      } catch (e) {
+        console.error(e);
+        toast.error(e.response.data.message);
+      }
+    } else {
+      try {
+        const res = await axios.post(
+          'https://slim-mom-backend-nbxd.onrender.com/user/daily-calory-needs',
+          values,
+        );
+        setDailyRate(res.data.data);
+        setDailyRateData(res.data.data); // This line is added Murat
+      } catch (e) {
+        console.error(e);
+        toast.error(e.response.data.message);
+      }
     }
   };
 

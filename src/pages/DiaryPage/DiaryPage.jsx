@@ -16,7 +16,7 @@ const DiaryPage = () => {
   const fetchProducts = async (selectedDate) => {
     try {
       const response = await axios.get(
-        `https://slimmom-backend-s8n8.onrender.com/user/products?date=${selectedDate}`,
+        `https://slim-mom-backend-nbxd.onrender.com/user/products?date=${selectedDate}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },
