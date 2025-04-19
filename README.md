@@ -50,4 +50,6 @@ https://slim-mom-frontend-plum.vercel.app/
 ## Trello Link
 
 https://trello.com/b/M81HH7LH/slim-mom
-# Slim-Mom-Frontend
+
+# Slim-Mom-Frontend Figma
+https://www.figma.com/design/DOk8LXwgwUm9xwBPMoBEHe/HEALTH-EN?node-id=12701-44
