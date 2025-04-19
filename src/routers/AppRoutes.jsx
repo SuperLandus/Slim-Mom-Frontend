@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Loader from '../components/Loader/Loader';
+import Background from '../components/Background/Background';
 
 const RegistrationPage = lazy(
   () => import('../pages/RegistrationPage/RegistrationPage'),
@@ -17,7 +18,7 @@ const PrivateRoute = ({ children }) => {
   const isLoggedIn = useSelector((state) => {
     return state.auth.isLoggedIn;
   });
-  return isLoggedIn ? children : <Navigate to="/login" replace />;
+  return isLoggedIn ? children : <Background><Navigate to="/login" replace /></Background>;
 };
 
 const PublicRoute = ({ children }) => {
@@ -25,7 +26,7 @@ const PublicRoute = ({ children }) => {
     return state.auth.isLoggedIn;
   });
 
-  return isLoggedIn ? <Navigate to="/diary" replace /> : children;
+  return isLoggedIn ? <Navigate to="/diary" replace /> : <Background>{children}</Background> ;
 };
 
 const AppRoutes = () => {
