@@ -58,7 +58,6 @@ const RightSideBar = ({ selectedDate, date, products }) => {
         );
         setUserNeeds(res.data.data.dailyRate);
         console.log(res);
-
       } catch (err) {
         console.log(err);
       }
@@ -67,7 +66,7 @@ const RightSideBar = ({ selectedDate, date, products }) => {
     fetchDailyCalories();
   }, [selectedDate, formattedDate, token, products]);
 
-  const leftCalories = consumedCalories - userNeeds;
+  const leftCalories = userNeeds - consumedCalories;
   return (
     <aside
       className="
@@ -100,11 +99,11 @@ const RightSideBar = ({ selectedDate, date, products }) => {
         <ul className="text-[#9B9FAA] font-[Verdana] text-[14px] leading-[18px] tracking-[0.04em] space-y-4 w-full">
           <li className="flex justify-between gap-4">
             <span>Left</span>
-            <span>{leftCalories >= 0 ? leftCalories : 0} kcal</span>
+            <span>{leftCalories >= 0 ? Math.round(leftCalories) : 0} kcal</span>
           </li>
           <li className="flex justify-between gap-4">
             <span>Consumed</span>
-            <span>{consumedCalories ?? 0} kcal</span>
+            <span>{(Math.floor(consumedCalories)) ?? 0} kcal</span>
           </li>
           <li className="flex justify-between gap-4">
             <span>Daily rate</span>
