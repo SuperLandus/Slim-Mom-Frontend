@@ -33,7 +33,7 @@ const UserInfo = () => {
       </span>
 
       {/* Ayraç */}
-      <span className="mx-2 h-10 border-2 border-gray-300"></span>
+      {isLoggedIn && (<span className="mx-2 h-10 border-2 border-gray-300"></span>)}
 
       {/* Exit */}
       {isLoggedIn && (

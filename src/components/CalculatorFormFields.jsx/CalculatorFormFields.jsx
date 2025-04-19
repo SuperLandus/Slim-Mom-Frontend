@@ -9,6 +9,7 @@ function CalculatorFormFields({ values }) {
           type="number"
           placeholder="Height *"
           className="w-full border-b border-gray-200 pl-1 pb-2 focus:outline-none focus:border-gray-600 focus:placeholder-gray-600"
+          tabIndex={1} 
         />
         <ErrorMessage
           name="height"
@@ -23,6 +24,7 @@ function CalculatorFormFields({ values }) {
           type="number"
           placeholder="Current weight *"
           className="w-full border-b border-gray-200 pl-1 pb-2 focus:outline-none focus:border-gray-600 focus:placeholder-gray-600"
+          tabIndex={2} 
         />
         <ErrorMessage
           name="currentWeight"
@@ -37,6 +39,7 @@ function CalculatorFormFields({ values }) {
           type="number"
           placeholder="Desired weight *"
           className="w-full border-b border-gray-200 pl-1 pb-2 focus:outline-none focus:border-gray-600 focus:placeholder-gray-600"
+          tabIndex={3} 
         />
         <ErrorMessage
           name="desiredWeight"
@@ -51,6 +54,7 @@ function CalculatorFormFields({ values }) {
           type="number"
           placeholder="Age *"
           className="w-full border-b border-gray-200 pl-1 pb-2 focus:outline-none focus:border-gray-600 focus:placeholder-gray-600"
+          tabIndex={4} 
         />
         <ErrorMessage
           name="age"
