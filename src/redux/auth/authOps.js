@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { setToken } from './authSlice';
 
-const API_URL = 'https://slim-mom-backend-nbxd.onrender.com';
+const API_URL = 'https://slim-mom-backend-bhhk.onrender.com';
 
 // REGISTER
 export const registerUser = createAsyncThunk(
@@ -15,7 +15,7 @@ export const registerUser = createAsyncThunk(
         password,
       });
       const token = response.data.data.accessToken;
-      
+
       dispatch(setToken(token));
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       return {

@@ -40,7 +40,7 @@ const RightSideBar = ({ selectedDate, date, products }) => {
 
       try {
         const res = await axios.get(
-          `https://slim-mom-backend-nbxd.onrender.com/user/my-daily-calories?date=${formattedDate}`,
+          `https://slim-mom-backend-bhhk.onrender.com/user/my-daily-calories?date=${formattedDate}`,
         );
         setConsumedCalories(res.data.totalCalories || 0);
         setFetchedDate(res.data.date);
@@ -49,7 +49,7 @@ const RightSideBar = ({ selectedDate, date, products }) => {
       }
       try {
         const res = await axios.get(
-          `https://slim-mom-backend-nbxd.onrender.com/user/my-daily-calory-needs`,
+          `https://slim-mom-backend-bhhk.onrender.com/user/my-daily-calory-needs`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
