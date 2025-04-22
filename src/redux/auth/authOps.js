@@ -7,16 +7,19 @@ const API_URL = 'https://slim-mom-backend-nbxd.onrender.com';
 // REGISTER
 export const registerUser = createAsyncThunk(
   'auth/register',
-  async ({ name, email, password }, { rejectWithValue }) => {
+  async ({ name, email, password }, { dispatch, rejectWithValue }) => {
     try {
       const response = await axios.post(`${API_URL}/auth/register`, {
         name,
         email,
         password,
       });
-
+      const token = response.data.data.accessToken;
+      
+      dispatch(setToken(token));
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       return {
-        accessToken: response.data.token,
+        accessToken: token,
         user: {
           name: response.data.data.name,
           email: response.data.data.email,
