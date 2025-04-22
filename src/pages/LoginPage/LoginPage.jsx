@@ -21,7 +21,7 @@ const Login = () => {
   }, [error]);
 
   return (
-    <div className="">
+    <div>
       <LoginForm />
       <Toaster />
     </div>

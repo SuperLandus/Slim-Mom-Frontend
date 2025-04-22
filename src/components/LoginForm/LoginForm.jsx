@@ -40,8 +40,8 @@ const Login = () => {
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
-        <div className="">
-          <Form className="flex flex-col items-start space-y-6 sm:gap-5 w-full justify-center p-2 md:p-8">
+        <div>
+          <Form className="flex flex-col items-center md:items-start space-y-6 sm:gap-5 w-full justify-center p-2">
             <h1 id="loginHeader" className="text-orange-500 font-bold mb-10">
               LOGIN
             </h1>

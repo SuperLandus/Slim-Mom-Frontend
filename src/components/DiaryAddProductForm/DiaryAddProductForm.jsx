@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import addVector from '/svg/add.svg';
-import calendar from '/svg/calendar.svg';
+// import calendar from '/svg/calendar.svg';
 import axios from 'axios';
 import { DiaryDateСalendar } from '../DiaryDateСalendar/DiaryDateСalendar';
 import toast from 'react-hot-toast';
@@ -63,9 +63,8 @@ const DiaryAddProductForm = ({ date, setDate, onAddSuccess }) => {
 
   return (
     <>
-      <div className="flex gap-1.25 mb-8">
+      <div className="mb-8 gap-1.25">
         <DiaryDateСalendar date={date} setDate={setDate} />
-        <img src={calendar} width={15} height={15} />
       </div>
       <form
         className="flex flex-col items-center md:flex-row md:items-baseline md:justify-start md:gap-10"
@@ -105,12 +104,12 @@ const DiaryAddProductForm = ({ date, setDate, onAddSuccess }) => {
           placeholder="Grams"
           value={weight}
           onChange={(e) => setWeight(e.target.value)}
-          className="border-b-2 border-b-gray-200 w-full placeholder:font-bold placeholder:text-gray-400 pb-1 mb-5 md:max-w-[110px] md:mb-0 md:text-end md:pb-4 md:mr-10"
+          className="border-b-2 border-b-gray-200 md:w-fit w-full placeholder:font-bold placeholder:text-gray-400 pb-1 mb-5 md:max-w-[110px] md:mb-0 md:text-end md:pb-4 md:mr-10"
         />
 
         <button
           type="button"
-          className="bg-[#FC842D] rounded-full cursor-pointer w-12 h-12 shadow-[0_4px_10px_rgba(252,132,45,0.5)] justify-items-center mb-10 md:mb-0 md:self-start"
+          className="bg-[#FC842D] rounded-full cursor-pointer min-w-12 min-h-12 shadow-[0_4px_10px_rgba(252,132,45,0.5)] justify-items-center mb-10 md:mb-0 md:self-start"
           onClick={addProduct}
         >
           <img src={addVector} className="w-5 h-5" />

@@ -53,7 +53,7 @@ const RegistrationForm = () => {
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
-        <Form className="flex flex-col items-start space-y-6 sm:gap-5 w-full justify-center p-2 md:p-8">
+        <Form className="flex flex-col items-center md:items-start space-y-6 sm:gap-5 w-full justify-center p-2 md:p-8">
           <h1 id="registerHeader" className="text-orange-500 font-bold">
             REGISTER
           </h1>

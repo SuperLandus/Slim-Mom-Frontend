@@ -75,8 +75,7 @@ const RightSideBar = ({ selectedDate, date, products }) => {
         items-start 
         gap-8
         w-full
-        md:w-[600px]
-        min-h-[400px] md:min-h-screen
+        md:min-h-screen
         p-6 md:p-10
         rounded-lg
         shadow-md
@@ -99,11 +98,15 @@ const RightSideBar = ({ selectedDate, date, products }) => {
         <ul className="text-[#9B9FAA] font-[Verdana] text-[14px] leading-[18px] tracking-[0.04em] space-y-4 w-full">
           <li className="flex justify-between gap-4">
             <span>Left</span>
-            <span>{leftCalories >= 0 ? Math.round(leftCalories) : 0} kcal</span>
+            <span
+              className={leftCalories < 0 ? 'text-[#c41c16]' : 'text-[#9B9FAA]'}
+            >
+              {Math.round(leftCalories)} kcal
+            </span>
           </li>
           <li className="flex justify-between gap-4">
             <span>Consumed</span>
-            <span>{(Math.floor(consumedCalories)) ?? 0} kcal</span>
+            <span>{Math.floor(consumedCalories)} kcal</span>
           </li>
           <li className="flex justify-between gap-4">
             <span>Daily rate</span>

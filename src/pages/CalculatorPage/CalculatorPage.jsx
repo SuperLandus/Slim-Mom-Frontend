@@ -8,9 +8,13 @@ function CalculatorPage() {
   const [dailyRateData, setDailyRateData] = useState(null);
 
   return (
-    <div className="flex flex-col md:flex-row justify-between">
+    <div className="flex flex-col md:flex-row justify-between gap-5">
       <CalculatorCalorieForm setDailyRateData={setDailyRateData} />
-      {isLoggedIn && <RideSideBar dailyRateData={dailyRateData} />}
+      {isLoggedIn && (
+        <div className="xl:max-w-[600px] md:w-1/2 min-w-[250px]">
+          <RideSideBar dailyRateData={dailyRateData} />
+        </div>
+      )}
     </div>
   );
 }

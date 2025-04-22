@@ -15,12 +15,12 @@ function CalculatorCalorieForm({ setDailyRateData }) {
   const [dailyRate, setDailyRate] = useState(null);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
-  const handleSubmit = async (values) => {
-    console.log(isLoggedIn);
-
+    const handleSubmit = async (values) => {
+      console.log(values);
+      
     if (isLoggedIn) {
       try {
-        const res = await axios.get(
+        const res = await axios.post(
           'https://slim-mom-backend-nbxd.onrender.com/user/my-daily-calory-needs',
           values,
         );
