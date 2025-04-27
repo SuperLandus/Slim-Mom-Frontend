@@ -2,7 +2,7 @@
 
 **Slim-Mom** projesine hoş geldiniz. Bu proje, [**SuperLandus**](https://github.com/Super-Landus) adlı ekibin çalışmasıdır.
 
-[![Static Badge](https://img.shields.io/badge/visit-SlimMom-%FF9D23?style=for-the-badge)](https://slim-mom-frontend-plum.vercel.app/)
+[![Static Badge](https://img.shields.io/badge/visit-SlimMom-%FF9D23?style=for-the-badge)](https://https://slim-mom-frontend-eight.vercel.app)
 
 ## ![alt](./src/assets/Frontend%20Readme.png)
 
@@ -45,7 +45,7 @@ Slim Mom, kullanıcıların günlük kalori alımını takip edebileceği ve hed
 
 ## Vercel Link
 
-https://slim-mom-frontend-plum.vercel.app/
+https://slim-mom-frontend-eight.vercel.app
 
 ## Trello Link
 
