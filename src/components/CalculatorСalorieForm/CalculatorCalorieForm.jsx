@@ -25,7 +25,7 @@ function CalculatorCalorieForm({ setDailyRateData }) {
           values,
         );
         setDailyRate(res.data.data);
-        setDailyRateData(res.data.data); // This line is added Murat
+        setDailyRateData(res.data.data);
       } catch (e) {
         console.error(e);
         toast.error(e.response.data.message);
@@ -37,7 +37,7 @@ function CalculatorCalorieForm({ setDailyRateData }) {
           values,
         );
         setDailyRate(res.data.data);
-        setDailyRateData(res.data.data); // This line is added Murat
+        setDailyRateData(res.data.data);
       } catch (e) {
         console.error(e);
         toast.error(e.response.data.message);
