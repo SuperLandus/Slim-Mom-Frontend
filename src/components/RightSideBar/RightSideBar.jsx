@@ -1,28 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { format } from 'date-fns';
 import { useSelector } from 'react-redux';
 
 const RightSideBar = ({ selectedDate, date, products }) => {
   const [consumedCalories, setConsumedCalories] = useState(0);
-  const [fetchedDate, setFetchedDate] = useState('');
   const { token } = useSelector((state) => state.auth);
   const [userNeeds, setUserNeeds] = useState('');
 
-  // LocalStorage'dan dailyRate ve notAllowedFoods verilerini çek
-  //   const storedData = localStorage.getItem('dailyRateData');
-  //   const parsedData = storedData ? JSON.parse(storedData) : null;
-  //   const dailyRate = parsedData?.dailyRate || 0;
-  //   const notAllowedFoods = parsedData?.notAllowedFoods || [];
-
-  //   const leftCalories = dailyRate - consumedCalories;
-
-  // date formatlama işlemi - date undefined olursa hata almamak için
   let formattedDate = '';
 
   try {
     if (date) {
-      formattedDate = new Date(date).toISOString().split('T')[0];
+      const adjustedDate = new Date(date);
+      adjustedDate.setHours(adjustedDate.getHours() + 3); // Adjust to +3 timezone
+      formattedDate = adjustedDate.toISOString().split('T')[0]; // Format as YYYY-MM-DD
     }
   } catch (err) {
     console.error('Date format error:', err);
@@ -34,7 +25,6 @@ const RightSideBar = ({ selectedDate, date, products }) => {
       // Token veya tarih yoksa istek atma
       if (!token || !formattedDate) {
         setConsumedCalories(0);
-        setFetchedDate('');
         return;
       }
 
@@ -42,8 +32,8 @@ const RightSideBar = ({ selectedDate, date, products }) => {
         const res = await axios.get(
           `https://slim-mom-backend-bhhk.onrender.com/user/my-daily-calories?date=${formattedDate}`,
         );
+
         setConsumedCalories(res.data.totalCalories || 0);
-        setFetchedDate(res.data.date);
       } catch (err) {
         console.log('Daily Calories Error:', err);
       }
@@ -90,9 +80,7 @@ const RightSideBar = ({ selectedDate, date, products }) => {
       {/* Summary */}
       <div className="flex flex-col items-start gap-4 mb-12 w-full">
         <h3 className="font-verdana font-bold text-sm tracking-wider">
-          Summary for{' '}
-          {fetchedDate ||
-            (selectedDate ? format(selectedDate, 'dd.MM.yyyy') : '')}
+          Summary for {new Date(formattedDate).toLocaleDateString()}
         </h3>
 
         <ul className="text-[#9B9FAA] font-[Verdana] text-[14px] leading-[18px] tracking-[0.04em] space-y-4 w-full">

@@ -18,6 +18,9 @@ const DiaryAddProductForm = ({ date, setDate, onAddSuccess }) => {
     setFilteredItems([]);
   }
 
+  const adjustedDate = new Date(date);
+  adjustedDate.setHours(adjustedDate.getHours() + 3);
+
   async function addProduct() {
     if (!token) {
       toast.error('You must be logged in to add a product!');
@@ -29,7 +32,7 @@ const DiaryAddProductForm = ({ date, setDate, onAddSuccess }) => {
           {
             productId: itemId,
             productWeight: weight,
-            date,
+            date: adjustedDate,
           },
           { headers: { Authorization: `Bearer ${token}` } },
         );

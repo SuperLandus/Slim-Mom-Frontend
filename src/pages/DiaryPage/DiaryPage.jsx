@@ -11,7 +11,9 @@ const DiaryPage = () => {
   const [products, setProducts] = useState([]);
   const { token } = useSelector((state) => state.auth);
   const isPersistLoaded = useSelector((state) => state.auth.token !== null);
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+    
+    
 
   const fetchProducts = async (selectedDate) => {
     try {
