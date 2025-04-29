@@ -89,12 +89,12 @@ const RightSideBar = ({ selectedDate, date, products }) => {
             <span
               className={leftCalories < 0 ? 'text-[#c41c16]' : 'text-[#9B9FAA]'}
             >
-              {Math.round(leftCalories)} kcal
+              {Math.floor(leftCalories)} kcal
             </span>
           </li>
           <li className="flex justify-between gap-4">
             <span>Consumed</span>
-            <span>{Math.floor(consumedCalories)} kcal</span>
+            <span>{Math.round(consumedCalories)} kcal</span>
           </li>
           <li className="flex justify-between gap-4">
             <span>Daily rate</span>
