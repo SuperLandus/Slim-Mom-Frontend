@@ -43,7 +43,7 @@ function DailyCaloryModal({ setDailyRate, dailyRate }) {
             {dailyRate.dailyRate}
             <span className="font-bold text-[16px]">KCAL</span>
           </h2>
-
+          {console.log(dailyRate)}
           <div className="border-t border-gray-200 pt-[20px]">
             <h2 className="font-bold text-[14px] mb-[20px]">
               Foods you should not eat

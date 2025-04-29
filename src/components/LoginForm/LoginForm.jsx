@@ -90,7 +90,7 @@ const Login = () => {
               </button>
               <button
                 type="button"
-                className="bg-white cursor-pointer text-[#FC842D] px-6 py-2 w-30 h-10  rounded-full hover:bg-orange-600 border-orange-500 border-2"
+                className="bg-white cursor-pointer text-[#FC842D] px-6 w-30 h-10  rounded-full hover:bg-orange-600 hover:text-white border-orange-500 border-2"
                 onClick={() => {
                   navigate('/register');
                 }}
