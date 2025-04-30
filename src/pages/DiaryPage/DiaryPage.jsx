@@ -56,7 +56,7 @@ const DiaryPage = () => {
           date={date}
         />
       </div>
-      <div className="w-full md:w-1/2">
+      <div className="w-full md:w-1/3 min-w-[250px]">
         <RightSideBar date={date} products={products} />
       </div>
     </div>

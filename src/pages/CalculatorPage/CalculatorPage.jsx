@@ -11,7 +11,7 @@ function CalculatorPage() {
     <div className="flex flex-col md:flex-row justify-between gap-5">
       <CalculatorCalorieForm setDailyRateData={setDailyRateData} />
       {isLoggedIn && (
-        <div className="xl:max-w-[600px] md:w-1/2 min-w-[250px]">
+        <div className="w-full md:w-1/3 min-w-[250px]">
           <RideSideBar dailyRateData={dailyRateData} />
         </div>
       )}
